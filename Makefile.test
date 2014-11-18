@@ -1,0 +1,51 @@
+# the compiler: cc for C program
+CC = cc
+
+# compiler flags:
+# -g	adds debugging information to the executable file
+#
+CFLAGS = -g
+
+# the build target executable:
+default: testrconf
+
+# All the object files:
+#
+OBJS = test.o utils.o rconf.o rlog.o
+
+# To create the executable file testrconf we need the object
+# files utils.o rconf.o test.o:
+#
+testrconf: $(OBJS) 
+	$(CC) $(CFLAGS) -o testrconf $(OBJS)
+
+# To create the object file test.o, we need the source files
+# test.c
+#
+test.o: test.c rconf.h
+	$(CC) $(CFLAGS) -c test.c
+
+# To create the object file rconf.o, we need the source files
+# rconf.c, rconf.h
+#
+rconf.o: rconf.c rconf.h utils.h
+	$(CC) $(CFLAGS) -c rconf.c
+
+# To create the object file utils.o, we need the source files
+# utils.c, utils.h
+#
+utils.o: utils.c utils.h
+	$(CC) $(CFLAGS) -c utils.c
+
+# To create the object file rlog.o, we need the source files
+# rlog.c and rlog.h
+#
+rlog.o: rlog.c rlog.h
+	$(CC) $(CFLAGS) -c rlog.c
+
+# To start over from scratch, type 'make clean'.  This
+# removes the executable file, as well as old .o object
+# files and *~ backup files:
+#
+clean: 
+	rm -f testrconf *.o core

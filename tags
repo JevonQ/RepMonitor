@@ -1,0 +1,323 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.5.4	//
+CMDNAMELEN	rconf.h	13;"	d
+CONFIG_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	6;"	d
+DBG_PRINT_PER_SYSTEM	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	95;"	d	file:
+DBG_RANDOM_LOSE_FEW	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	93;"	d	file:
+DBG_RANDOM_LOSE_MANY	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	94;"	d	file:
+DBG_REPORT_ALL_RTTS	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	96;"	d	file:
+DBG_SENT_TIMES	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	92;"	d	file:
+DBG_TRACE	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	91;"	d	file:
+DEFAULT_BACKOFF_FACTOR	ReplicationMonitor/rsync-monitor/src/rephb/options.h	44;"	d
+DEFAULT_INTERVAL	ReplicationMonitor/rsync-monitor/src/rephb/options.h	23;"	d
+DEFAULT_PERHOST_INTERVAL	ReplicationMonitor/rsync-monitor/src/rephb/options.h	27;"	d
+DEFAULT_PING_DATA_SIZE	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	76;"	d	file:
+DEFAULT_RETRY	ReplicationMonitor/rsync-monitor/src/rephb/options.h	36;"	d
+DEFAULT_SELECT_TIME	ReplicationMonitor/rsync-monitor/src/rephb/options.h	40;"	d
+DEFAULT_TIMEOUT	ReplicationMonitor/rsync-monitor/src/rephb/options.h	31;"	d
+DNS_TIMEOUT	ReplicationMonitor/rsync-monitor/src/rephb/options.h	50;"	d
+EV_TYPE_PING	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	147;"	d	file:
+EV_TYPE_TIMEOUT	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	148;"	d	file:
+FPING_ICMPHDR	ReplicationMonitor/rsync-monitor/src/rephb/fping.h	12;"	d
+FPING_ICMPHDR	ReplicationMonitor/rsync-monitor/src/rephb/fping.h	16;"	d
+FPING_INADDR	ReplicationMonitor/rsync-monitor/src/rephb/fping.h	11;"	d
+FPING_INADDR	ReplicationMonitor/rsync-monitor/src/rephb/fping.h	15;"	d
+FPING_SOCKADDR	ReplicationMonitor/rsync-monitor/src/rephb/fping.h	10;"	d
+FPING_SOCKADDR	ReplicationMonitor/rsync-monitor/src/rephb/fping.h	14;"	d
+F_DAY	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    F_DAY,$/;"	e	enum:f	file:
+F_DEVICE	ReplicationMonitor/rsync-monitor/src/log.h	/^    F_DEVICE,$/;"	e	enum:file_type
+F_DIRECTORY	ReplicationMonitor/rsync-monitor/src/log.h	/^    F_DIRECTORY,$/;"	e	enum:file_type
+F_FILE	ReplicationMonitor/rsync-monitor/src/log.h	/^    F_FILE = 0,$/;"	e	enum:file_type
+F_HOUR	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    F_HOUR,$/;"	e	enum:f	file:
+F_MINUTE	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    F_MINUTE = 0,$/;"	e	enum:f	file:
+F_MONTH	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    F_MONTH,$/;"	e	enum:f	file:
+F_SPECIAL_FILE	ReplicationMonitor/rsync-monitor/src/log.h	/^    F_SPECIAL_FILE$/;"	e	enum:file_type
+F_SYMLINK	ReplicationMonitor/rsync-monitor/src/log.h	/^    F_SYMLINK,$/;"	e	enum:file_type
+F_WEEK	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    F_WEEK,$/;"	e	enum:f	file:
+HAVE_INTTYPES_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	10;"	d
+HAVE_MEMORY_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	19;"	d
+HAVE_STDINT_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	22;"	d
+HAVE_STDLIB_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	25;"	d
+HAVE_STRINGS_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	28;"	d
+HAVE_STRING_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	31;"	d
+HAVE_SYS_FILE_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	34;"	d
+HAVE_SYS_SELECT_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	37;"	d
+HAVE_SYS_STAT_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	40;"	d
+HAVE_SYS_TYPES_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	43;"	d
+HAVE_UNISTD_H	ReplicationMonitor/rsync-monitor/src/rephb/config.h	46;"	d
+HOST_ENTRY	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^} HOST_ENTRY;$/;"	t	file:
+ICMP_UNREACH_MAXTYPE	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	143;"	d	file:
+INADDR_NONE	ReplicationMonitor/rsync-monitor/src/rephb/config.h	79;"	d
+INTERVAL	ReplicationMonitor/rsync-monitor/src/netstat.h	15;"	d
+LOOP_MAX	ReplicationMonitor/rsync-monitor/src/netstat.h	16;"	d
+MAX_BACKOFF_FACTOR	ReplicationMonitor/rsync-monitor/src/rephb/options.h	47;"	d
+MAX_COUNT	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	79;"	d	file:
+MAX_IP_PACKET	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	66;"	d	file:
+MAX_PING_DATA	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	73;"	d	file:
+MAX_RETRY	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	83;"	d	file:
+MIN_BACKOFF_FACTOR	ReplicationMonitor/rsync-monitor/src/rephb/options.h	46;"	d
+MIN_INTERVAL	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	80;"	d	file:
+MIN_PERHOST_INTERVAL	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	81;"	d	file:
+MIN_PING_DATA	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	65;"	d	file:
+MIN_TIMEOUT	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	82;"	d	file:
+NIC_COUNT_MAX	ReplicationMonitor/rsync-monitor/src/netstat.h	18;"	d
+NIC_NAME_MAX	ReplicationMonitor/rsync-monitor/src/netstat.h	17;"	d
+PACKAGE	ReplicationMonitor/rsync-monitor/src/rephb/config.h	49;"	d
+PACKAGE_BUGREPORT	ReplicationMonitor/rsync-monitor/src/rephb/config.h	52;"	d
+PACKAGE_NAME	ReplicationMonitor/rsync-monitor/src/rephb/config.h	55;"	d
+PACKAGE_STRING	ReplicationMonitor/rsync-monitor/src/rephb/config.h	58;"	d
+PACKAGE_TARNAME	ReplicationMonitor/rsync-monitor/src/rephb/config.h	61;"	d
+PACKAGE_URL	ReplicationMonitor/rsync-monitor/src/rephb/config.h	64;"	d
+PACKAGE_VERSION	ReplicationMonitor/rsync-monitor/src/rephb/config.h	67;"	d
+PATH_CONFIG	repmonitor.c	/^static const char PATH_CONFIG[] = ".\/repmon.conf";$/;"	v	file:
+RESP_UNUSED	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	87;"	d	file:
+RESP_WAITING	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	86;"	d	file:
+SEQMAP_H	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.h	2;"	d
+SEQMAP_MAXSEQ	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.h	14;"	d
+SEQMAP_TIMEOUT_IN_S	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.c	58;"	d	file:
+SEQMAP_UNASSIGNED_HOST_NR	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.c	59;"	d	file:
+SEQMAP_VALUE	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.h	/^} SEQMAP_VALUE;$/;"	t
+SIZE_ICMP_HDR	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	69;"	d	file:
+SIZE_ICMP_HDR	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	71;"	d	file:
+SIZE_IP_HDR	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	67;"	d	file:
+STATUS_OFFLINE	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    STATUS_OFFLINE,$/;"	e	enum:status_s	file:
+STATUS_ONLINE	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    STATUS_ONLINE = 0,$/;"	e	enum:status_s	file:
+STAT_IDLE	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    STAT_IDLE = 0,$/;"	e	enum:stat_s	file:
+STAT_RUNNING	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    STAT_RUNNING,$/;"	e	enum:stat_s	file:
+STDC_HEADERS	ReplicationMonitor/rsync-monitor/src/rephb/config.h	70;"	d
+TEXT_DOMAIN	repmonitor.c	51;"	d	file:
+T_TYPE_OTHER	ReplicationMonitor/rsync-monitor/src/log.h	/^    T_TYPE_OTHER$/;"	e	enum:transfer_type
+T_TYPE_RECEIVED	ReplicationMonitor/rsync-monitor/src/log.h	/^    T_TYPE_RECEIVED,$/;"	e	enum:transfer_type
+T_TYPE_SENT	ReplicationMonitor/rsync-monitor/src/log.h	/^    T_TYPE_SENT = 0,$/;"	e	enum:transfer_type
+VERSION	ReplicationMonitor/rsync-monitor/src/rephb/config.h	73;"	d
+_FPING_H	ReplicationMonitor/rsync-monitor/src/rephb/fping.h	2;"	d
+_RCONF_H	rconf.h	2;"	d
+_REPMONITOR_H	repmonitor.h	2;"	d
+__APPLE_USE_RFC_3542	ReplicationMonitor/rsync-monitor/src/rephb/fping.h	4;"	d
+add_addr	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void add_addr( char *name, char *host, struct in_addr ipaddr )$/;"	f
+add_cidr	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void add_cidr(char *addr)$/;"	f
+add_name	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void add_name( char *name )$/;"	f
+add_range	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void add_range(char *start, char *end)$/;"	f
+addr	rconf.h	/^	struct in_addr	addr;$/;"	m	union:any_ip_addr
+addr6	rconf.h	/^	struct in6_addr addr6;$/;"	m	union:any_ip_addr
+addr_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int per_recv_flag, report_all_rtts_flag, name_flag, addr_flag, backoff_flag;$/;"	v
+alive_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int verbose_flag, quiet_flag, stats_flag, unreachable_flag, alive_flag;$/;"	v
+any_ip_addr	rconf.h	/^union any_ip_addr {$/;"	u
+backoff	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^float backoff = DEFAULT_BACKOFF_FACTOR;$/;"	v
+backoff_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int per_recv_flag, report_all_rtts_flag, name_flag, addr_flag, backoff_flag;$/;"	v
+check_running_time	ReplicationMonitor/rsync-monitor/src/rservice.c	/^check_running_time(rservice_t *rs)$/;"	f
+check_service_cron_job	ReplicationMonitor/rsync-monitor/src/rservice.c	/^check_service_cron_job(rservice_t *rs)$/;"	f
+count	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int count = 1;$/;"	v
+count_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int elapsed_flag, version_flag, count_flag, loop_flag;$/;"	v
+crash_and_burn	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void crash_and_burn( char *message )$/;"	f
+current_time	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^struct timeval current_time;        \/* current time (pseudo) *\/$/;"	v
+day	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    int day;$/;"	m	struct:frequency	file:
+debugging	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int debugging = 0;$/;"	v
+die	ReplicationMonitor/rsync-monitor/src/netstat.c	/^die(char *message, int status)$/;"	f	file:
+elapsed_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int elapsed_flag, version_flag, count_flag, loop_flag;$/;"	v
+enabled	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    int enabled;$/;"	m	struct:rservice_s	file:
+end_time	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^struct timeval end_time;$/;"	v
+errno_crash_and_burn	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void errno_crash_and_burn( char *message )$/;"	f
+ev_dequeue	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^HOST_ENTRY *ev_dequeue()$/;"	f
+ev_enqueue	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void ev_enqueue(HOST_ENTRY  *h)$/;"	f
+ev_first	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^HOST_ENTRY *ev_first;$/;"	v
+ev_last	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^HOST_ENTRY *ev_last;$/;"	v
+ev_next	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     struct host_entry    *ev_next;           \/* double linked list for the event-queue *\/$/;"	m	struct:host_entry	file:
+ev_prev	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     struct host_entry    *ev_prev;           \/* double linked list for the event-queue *\/$/;"	m	struct:host_entry	file:
+ev_remove	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void ev_remove(HOST_ENTRY *h)$/;"	f
+ev_time	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     struct timeval       ev_time;            \/* time, after which this event should happen *\/$/;"	m	struct:host_entry	file:
+ev_type	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  ev_type;            \/* event type *\/$/;"	m	struct:host_entry	file:
+f	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    f_t f;$/;"	m	struct:frequency	file:
+f	ReplicationMonitor/rsync-monitor/src/rservice.c	/^typedef enum f$/;"	g	file:
+f_t	ReplicationMonitor/rsync-monitor/src/rservice.c	/^} f_t;$/;"	t	file:
+f_type	ReplicationMonitor/rsync-monitor/src/log.h	/^    file_type_t f_type;$/;"	m	struct:transfer_file
+fetch32	ReplicationMonitor/rsync-monitor/src/netstat.c	/^fetch32(kstat_t *ksp, char *value, uint32_t def)$/;"	f	file:
+fetch64	ReplicationMonitor/rsync-monitor/src/netstat.c	/^fetch64(kstat_t *ksp, char *value64, uint64_t def)$/;"	f	file:
+fetch6432	ReplicationMonitor/rsync-monitor/src/netstat.c	/^fetch6432(kstat_t *ksp, char *value64, char *value, uint64_t def)$/;"	f	file:
+fetch_boot_time	ReplicationMonitor/rsync-monitor/src/netstat.c	/^fetch_boot_time(kstat_ctl_t *kc)$/;"	f	file:
+fetch_nocanput	ReplicationMonitor/rsync-monitor/src/netstat.c	/^fetch_nocanput(kstat_t *ksp, uint32_t def)$/;"	f	file:
+file_type	ReplicationMonitor/rsync-monitor/src/log.h	/^typedef enum file_type$/;"	g
+file_type_t	ReplicationMonitor/rsync-monitor/src/log.h	/^} file_type_t;$/;"	t
+filename	ReplicationMonitor/rsync-monitor/src/log.h	/^    char filename[256];$/;"	m	struct:transfer_file
+filename	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^char *filename = NULL;              \/* file containing hosts to ping *\/$/;"	v
+finish	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void finish()$/;"	f
+freq	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    frequency_t freq;$/;"	m	struct:rservice_s	file:
+frequency	ReplicationMonitor/rsync-monitor/src/rservice.c	/^typedef struct frequency$/;"	s	file:
+frequency_t	ReplicationMonitor/rsync-monitor/src/rservice.c	/^} frequency_t;$/;"	t	file:
+g_network	ReplicationMonitor/rsync-monitor/src/netstat.c	/^static char *g_network[] = { "be", "bge", "ce", "ci", "dmfe", "e1000g", "el",$/;"	v	file:
+generate_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int generate_flag = 0;              \/* flag for IP list generation *\/$/;"	v
+get_bytesout	ReplicationMonitor/rsync-monitor/src/netstat.c	/^int get_bytesout(double bytesout[])$/;"	f
+get_frequency_by_content	ReplicationMonitor/rsync-monitor/src/rservice.c	/^get_frequency_by_content(char *line, frequency_t *f)$/;"	f	file:
+get_host_by_address	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^char *get_host_by_address( struct in_addr in )$/;"	f
+get_interface_name	ReplicationMonitor/rsync-monitor/src/netstat.c	/^int get_interface_name(nicname *interface_list)$/;"	f
+get_latest_data	ReplicationMonitor/rsync-monitor/src/netstat.c	/^get_latest_data(kstat_ctl_t *kc, nicdata l_data[])$/;"	f	file:
+get_num_by_day	ReplicationMonitor/rsync-monitor/src/rservice.c	/^get_num_by_day(char *day_str)$/;"	f	file:
+get_num_by_mon	ReplicationMonitor/rsync-monitor/src/rservice.c	/^get_num_by_mon(char *mon_str)$/;"	f	file:
+get_outerrs	ReplicationMonitor/rsync-monitor/src/netstat.c	/^int get_outerrs(double outerrs[])$/;"	f
+get_rservice_list	ReplicationMonitor/rsync-monitor/src/rservice.c	/^get_rservice_list(rservice_t *service_list)$/;"	f	file:
+get_service_status	ReplicationMonitor/rsync-monitor/src/rservice.c	/^get_service_status(rservice_t *rs)$/;"	f
+get_temp_filename	ReplicationMonitor/rsync-monitor/src/log.c	/^get_temp_filename(char *filename, char *temp_filename, char *last_line)$/;"	f
+get_worked_time	ReplicationMonitor/rsync-monitor/src/rservice.c	/^get_worked_time(struct tm *last_time, frequency_t *freq, struct tm* worktime)$/;"	f	file:
+handle_random_icmp	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int handle_random_icmp( FPING_ICMPHDR *p, int psize, FPING_SOCKADDR *addr )$/;"	f
+host	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     char                 *host;              \/* text description of host *\/$/;"	m	struct:host_entry	file:
+host_entry	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^typedef struct host_entry$/;"	s	file:
+host_nr	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.h	/^    unsigned int    host_nr;$/;"	m	struct:seqmap_value
+hour	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    int hour;$/;"	m	struct:frequency	file:
+i	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  i;                  \/* index into array *\/$/;"	m	struct:host_entry	file:
+icmp_type_str	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^char *icmp_type_str[19] =$/;"	v
+icmp_unreach_str	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^char *icmp_unreach_str[16] =$/;"	v
+ident	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int ident;                  \/* our pid *\/$/;"	v
+in_cksum	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int in_cksum( unsigned short *p, int n )$/;"	f
+instance_name	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    char instance_name[50];$/;"	m	struct:rservice_s	file:
+interval	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int interval = DEFAULT_INTERVAL * 100;$/;"	v
+last_line	ReplicationMonitor/rsync-monitor/src/log.h	/^    char last_line[100];$/;"	m	struct:transfer_file
+last_report_time	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^struct timeval last_report_time;    \/* time last report was printed *\/$/;"	v
+last_send_time	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     struct timeval       last_send_time;     \/* time of last packet sent *\/$/;"	m	struct:host_entry	file:
+last_send_time	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^struct timeval last_send_time;      \/* time last ping was sent *\/$/;"	v
+last_time	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    struct tm last_time; $/;"	m	struct:rservice_s	file:
+log_err	ReplicationMonitor/rsync-monitor/src/rservice.c	/^log_err(int level, char *msg)$/;"	f	file:
+loop_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int elapsed_flag, version_flag, count_flag, loop_flag;$/;"	v
+lose_factor	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int lose_factor;$/;"	v
+main	ReplicationMonitor/rsync-monitor/src/log.c	/^main()$/;"	f
+main	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int main( int argc, char **argv )$/;"	f
+main	ReplicationMonitor/rsync-monitor/src/rservice.c	/^main()$/;"	f
+main	repmonitor.c	/^main(int argc, char *argv[])$/;"	f
+main	test.c	/^main(int argc, char *argv[])$/;"	f
+main_loop	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void main_loop()$/;"	f
+max_hostname_len	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int max_hostname_len = 0;$/;"	v
+max_reply	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  max_reply;          \/* longest response time *\/$/;"	m	struct:host_entry	file:
+max_reply	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^long max_reply = 0;$/;"	v
+max_reply_i	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  max_reply_i;        \/* longest response time *\/$/;"	m	struct:host_entry	file:
+min	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    int min;$/;"	m	struct:frequency	file:
+min_reply	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  min_reply;          \/* shortest response time *\/$/;"	m	struct:host_entry	file:
+min_reply	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^long min_reply = 0;$/;"	v
+min_reply_i	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  min_reply_i;        \/* shortest response time *\/$/;"	m	struct:host_entry	file:
+mon	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    int mon;$/;"	m	struct:frequency	file:
+multif_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int multif_flag;$/;"	v
+name	ReplicationMonitor/rsync-monitor/src/netstat.h	/^    nicname name;           \/* name of interface *\/$/;"	m	struct:nicdata
+name	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     char                 *name;              \/* name as given by user *\/$/;"	m	struct:host_entry	file:
+name_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int per_recv_flag, report_all_rtts_flag, name_flag, addr_flag, backoff_flag;$/;"	v
+nicdata	ReplicationMonitor/rsync-monitor/src/netstat.h	/^typedef struct nicdata {$/;"	s
+nicdata	ReplicationMonitor/rsync-monitor/src/netstat.h	/^} nicdata;$/;"	t
+nicname	ReplicationMonitor/rsync-monitor/src/netstat.h	/^typedef char nicname[NIC_NAME_MAX];$/;"	t
+num_alive	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int num_alive = 0,                  \/* total number alive *\/$/;"	v
+num_hosts	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int num_hosts;                      \/* total number of hosts *\/$/;"	v
+num_jobs	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int num_jobs = 0;                   \/* number of hosts still to do *\/$/;"	v
+num_noaddress	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^    num_noaddress = 0;              \/* total number of addresses not found *\/$/;"	v
+num_othericmprcvd	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^    num_othericmprcvd = 0;          \/* total non-echo-reply ICMP received *\/$/;"	v
+num_pingreceived	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^    num_pingreceived = 0,           \/* total pings received *\/$/;"	v
+num_pingsent	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^    num_pingsent = 0,               \/* total pings sent *\/$/;"	v
+num_recv	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  num_recv;           \/* number of pings received (duplicates ignored) *\/$/;"	m	struct:host_entry	file:
+num_recv_i	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  num_recv_i;         \/* number of pings received *\/$/;"	m	struct:host_entry	file:
+num_recv_total	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  num_recv_total;     \/* number of pings received, including duplicates *\/$/;"	m	struct:host_entry	file:
+num_sent	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  num_sent;           \/* number of ping packets sent *\/$/;"	m	struct:host_entry	file:
+num_sent_i	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  num_sent_i;         \/* number of ping packets sent *\/$/;"	m	struct:host_entry	file:
+num_timeout	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int num_timeout = 0,                \/* number of times select timed out *\/$/;"	v
+num_unreachable	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^    num_unreachable = 0,            \/* total number unreachable *\/$/;"	v
+open_ping_socket	ReplicationMonitor/rsync-monitor/src/rephb/socket.c	/^int open_ping_socket()$/;"	f
+open_ping_socket_ipv4	ReplicationMonitor/rsync-monitor/src/rephb/socket4.c	/^int open_ping_socket_ipv4()$/;"	f
+open_ping_socket_ipv6	ReplicationMonitor/rsync-monitor/src/rephb/socket6.c	/^int open_ping_socket_ipv6()$/;"	f
+pad	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     char                 *pad;               \/* pad to align print names *\/$/;"	m	struct:host_entry	file:
+per_recv_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int per_recv_flag, report_all_rtts_flag, name_flag, addr_flag, backoff_flag;$/;"	v
+perhost_interval	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int perhost_interval = DEFAULT_PERHOST_INTERVAL * 100;$/;"	v
+pid	ReplicationMonitor/rsync-monitor/src/log.h	/^    int pid;$/;"	m	struct:transfer_file
+ping	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int ping(char *host)$/;"	f
+ping_count	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.h	/^    unsigned int    ping_count;$/;"	m	struct:seqmap_value
+ping_data_size	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int ping_data_size = DEFAULT_PING_DATA_SIZE;$/;"	v
+ping_pkt_size	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int ping_pkt_size;$/;"	v
+ping_ts	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.h	/^    struct timeval  ping_ts;$/;"	m	struct:seqmap_value
+print_global_stats	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void print_global_stats( void )$/;"	f
+print_per_system_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int randomly_lose_flag, sent_times_flag, trace_flag, print_per_system_flag;$/;"	v
+print_per_system_splits	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void print_per_system_splits( void )$/;"	f
+print_per_system_stats	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void print_per_system_stats( void )$/;"	f
+print_warning	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void print_warning(char *format, ...) {$/;"	f
+process_logfile	ReplicationMonitor/rsync-monitor/src/log.c	/^process_logfile(char *filename, transfer_file_t *file_list, char *last_line)$/;"	f
+prog	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^char *prog;$/;"	v
+quiet_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int verbose_flag, quiet_flag, stats_flag, unreachable_flag, alive_flag;$/;"	v
+randomly_lose_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int randomly_lose_flag, sent_times_flag, trace_flag, print_per_system_flag;$/;"	v
+rbytes	ReplicationMonitor/rsync-monitor/src/netstat.h	/^    uint64_t rbytes;        \/* total read bytes *\/$/;"	m	struct:nicdata
+rc_conf_fd	rconf.h	/^	int rc_conf_fd;			\/* File descriptor for config file *\/$/;"	m	struct:repmonconf
+rc_conf_fp	rconf.h	/^	FILE *rc_conf_fp;		\/* File pointer for config file *\/$/;"	m	struct:repmonconf
+rc_interval	rconf.h	/^	int rc_interval;		\/* Working interval *\/$/;"	m	struct:repmonconf
+rc_logdir	rconf.h	/^	char rc_logdir[MAXPATHLEN];	\/* Saved log directory *\/$/;"	m	struct:repmonconf
+rc_targetcmd	rconf.h	/^	char rc_targetcmd[CMDNAMELEN];	\/* Monitoring target cmd *\/$/;"	m	struct:repmonconf
+rc_targetip	rconf.h	/^	union any_ip_addr rc_targetip;	\/* Monitoring target IP *\/$/;"	m	struct:repmonconf
+rconf_open	rconf.c	/^rconf_open(repmonconf_t *rcp, const char*cpath)$/;"	f
+recvfrom_wto	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int recvfrom_wto( int s, char *buf, int len, FPING_SOCKADDR *saddr, long timo )$/;"	f
+remove_job	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void remove_job( HOST_ENTRY *h )$/;"	f
+repmonconf	rconf.h	/^typedef struct repmonconf {$/;"	s
+repmonconf_t	rconf.h	/^} repmonconf_t;$/;"	t
+report_all_rtts_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int per_recv_flag, report_all_rtts_flag, name_flag, addr_flag, backoff_flag;$/;"	v
+report_interval	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int report_interval = 0;$/;"	v
+resp_times	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  *resp_times;        \/* individual response times *\/$/;"	m	struct:host_entry	file:
+retry	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int retry = DEFAULT_RETRY;$/;"	v
+rpackets	ReplicationMonitor/rsync-monitor/src/netstat.h	/^    uint64_t rpackets;      \/* total read packets *\/$/;"	m	struct:nicdata
+rrlist	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^HOST_ENTRY *rrlist = NULL;  \/* linked list of hosts be pinged *\/$/;"	v
+rservice_s	ReplicationMonitor/rsync-monitor/src/rservice.c	/^typedef struct rservice_s$/;"	s	file:
+rservice_t	ReplicationMonitor/rsync-monitor/src/rservice.c	/^} rservice_t;$/;"	t	file:
+running	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     unsigned char        running;            \/* unset when through sending *\/$/;"	m	struct:host_entry	file:
+s	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int s;                      \/* socket *\/$/;"	v
+saddr	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     FPING_SOCKADDR       saddr;              \/* internet address *\/$/;"	m	struct:host_entry	file:
+sat	ReplicationMonitor/rsync-monitor/src/netstat.h	/^    uint64_t sat;           \/* saturation value *\/$/;"	m	struct:nicdata
+send_ping	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int send_ping( int s, HOST_ENTRY *h )$/;"	f
+sent_times	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  *sent_times;        \/* per-sent-ping timestamp *\/$/;"	m	struct:host_entry	file:
+sent_times_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int randomly_lose_flag, sent_times_flag, trace_flag, print_per_system_flag;$/;"	v
+seqmap_add	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.c	/^unsigned int seqmap_add(unsigned int host_nr, unsigned int ping_count, struct timeval *now)$/;"	f
+seqmap_fetch	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.c	/^SEQMAP_VALUE *seqmap_fetch(unsigned int id, struct timeval *now)$/;"	f
+seqmap_free_list	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.c	/^static SEQMAP_VALUE *seqmap_free_list;$/;"	v	file:
+seqmap_init	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.c	/^void seqmap_init()$/;"	f
+seqmap_map	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.c	/^static SEQMAP_VALUE *seqmap_map = NULL;$/;"	v	file:
+seqmap_next_id	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.c	/^static unsigned int seqmap_next_id = 0;$/;"	v	file:
+seqmap_value	ReplicationMonitor/rsync-monitor/src/rephb/seqmap.h	/^typedef struct seqmap_value$/;"	s
+size	ReplicationMonitor/rsync-monitor/src/log.h	/^    int size;$/;"	m	struct:transfer_file
+socket_set_src_addr	ReplicationMonitor/rsync-monitor/src/rephb/socket.c	/^void socket_set_src_addr(int s, FPING_INADDR src_addr)$/;"	f
+socket_set_src_addr_ipv4	ReplicationMonitor/rsync-monitor/src/rephb/socket4.c	/^void socket_set_src_addr_ipv4(int s, FPING_INADDR src_addr)$/;"	f
+socket_set_src_addr_ipv6	ReplicationMonitor/rsync-monitor/src/rephb/socket6.c	/^void socket_set_src_addr_ipv6(int s, FPING_INADDR src_addr)$/;"	f
+speed	ReplicationMonitor/rsync-monitor/src/netstat.h	/^    uint64_t speed;         \/* speed of interface *\/$/;"	m	struct:nicdata
+sprint_tm	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^char * sprint_tm( int t )$/;"	f
+src_addr	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^struct in6_addr src_addr;$/;"	v
+src_addr	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^struct in_addr src_addr;$/;"	v
+src_addr_present	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int src_addr_present = 0;$/;"	v
+start_time	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^struct timeval start_time; $/;"	v
+started_time	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    time_t started_time;$/;"	m	struct:rservice_s	file:
+stat	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    stat_t stat;$/;"	m	struct:rservice_s	file:
+stat_s	ReplicationMonitor/rsync-monitor/src/rservice.c	/^typedef enum stat_s$/;"	g	file:
+stat_t	ReplicationMonitor/rsync-monitor/src/rservice.c	/^} stat_t;$/;"	t	file:
+stats_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int verbose_flag, quiet_flag, stats_flag, unreachable_flag, alive_flag;$/;"	v
+status	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    status_t status;$/;"	m	struct:rservice_s	file:
+status_s	ReplicationMonitor/rsync-monitor/src/rservice.c	/^typedef enum status_s$/;"	g	file:
+status_t	ReplicationMonitor/rsync-monitor/src/rservice.c	/^} status_t;$/;"	t	file:
+sum_replies	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^double sum_replies = 0;$/;"	v
+t_type	ReplicationMonitor/rsync-monitor/src/log.h	/^    transfer_type_t t_type;$/;"	m	struct:transfer_file
+table	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^HOST_ENTRY **table = NULL;  \/* array of pointers to items in the list *\/$/;"	v
+time	ReplicationMonitor/rsync-monitor/src/netstat.h	/^    time_t time;            \/* time of sample *\/$/;"	m	struct:nicdata
+timeout	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  timeout;            \/* time to wait for response *\/$/;"	m	struct:host_entry	file:
+timeout	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int timeout = DEFAULT_TIMEOUT * 100; $/;"	v
+timestamp_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int timestamp_flag = 0;$/;"	v
+timeval_add	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void timeval_add(struct timeval *a, long t_10u)$/;"	f
+timeval_diff	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^long timeval_diff( struct timeval *a, struct timeval *b )$/;"	f
+total_replies	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int total_replies = 0;$/;"	v
+total_time	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  total_time;         \/* sum of response times *\/$/;"	m	struct:host_entry	file:
+total_time_i	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     int                  total_time_i;       \/* sum of response times *\/$/;"	m	struct:host_entry	file:
+trace_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int randomly_lose_flag, sent_times_flag, trace_flag, print_per_system_flag;$/;"	v
+transfer_file	ReplicationMonitor/rsync-monitor/src/log.h	/^typedef struct transfer_file$/;"	s
+transfer_file_t	ReplicationMonitor/rsync-monitor/src/log.h	/^} transfer_file_t;$/;"	t
+transfer_type	ReplicationMonitor/rsync-monitor/src/log.h	/^typedef enum transfer_type$/;"	g
+transfer_type_t	ReplicationMonitor/rsync-monitor/src/log.h	/^} transfer_type_t;$/;"	t
+trials	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int trials;$/;"	v
+ttl	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^unsigned int ttl = 0;$/;"	v
+tz	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^struct timezone tz;$/;"	v
+u_sleep	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void u_sleep( int u_sec )$/;"	f
+unreachable_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int verbose_flag, quiet_flag, stats_flag, unreachable_flag, alive_flag;$/;"	v
+usage	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^void usage(int is_error)$/;"	f
+verbose_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int verbose_flag, quiet_flag, stats_flag, unreachable_flag, alive_flag;$/;"	v
+version_flag	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int elapsed_flag, version_flag, count_flag, loop_flag;$/;"	v
+wait_for_reply	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^int wait_for_reply(long wait_time)$/;"	f
+waiting	ReplicationMonitor/rsync-monitor/src/rephb/rephb.c	/^     unsigned char        waiting;            \/* waiting for response *\/$/;"	m	struct:host_entry	file:
+wbytes	ReplicationMonitor/rsync-monitor/src/netstat.h	/^    uint64_t wbytes;        \/* total written bytes *\/$/;"	m	struct:nicdata
+week	ReplicationMonitor/rsync-monitor/src/rservice.c	/^    int week;$/;"	m	struct:frequency	file:
+wpackets	ReplicationMonitor/rsync-monitor/src/netstat.h	/^    uint64_t wpackets;      \/* total written packets *\/$/;"	m	struct:nicdata
