@@ -1,9 +1,3 @@
-/* 
- * References:
- * 	usr/src/cmd/dumpadm/main.c
- * 	usr/src/cmd/iscsid/iscsid.c
- * 	usr/src/cmd/fcinfo/fcinfo.c
- */
 #include <sys/stat.h>
 #include <locale.h>
 #include <stdio.h>
@@ -20,7 +14,10 @@
 #include "rlog.h"
 
 /* forward declarations */
-void repmon_watchdog(union sigval);
+//void repmon_watchdog(union sigval);
+void daemonize(log_entity_t *, repmonconf_t *);
+
+
 /*
  * main calls a parser that checks syntax of the input command against
  * various rules tables.
@@ -43,11 +40,63 @@ void repmon_watchdog(union sigval);
 #define	PATH_CONFIG "repmon.conf"
 #define CLOCKID CLOCK_REALTIME 
 
+/*
 void repmon_watchdog(union sigval v)
 {
 	printf("timer expiration\n");
 }
+*/
 
+void
+daemonize(log_entity_t *lep, repmonconf_t *rcp)
+{
+	pid_t pid, sid;
+	
+	if (getppid() == 1) {
+		/* already run as a daemon just return */
+		return;
+	}
+
+	/*
+	 * Forking off the parent process
+	 */
+	pid = fork();
+	if (pid < 0) {
+		exit (EXIT_FAILURE);
+	} else if (pid >0) {
+		/* If we got a good PID, then exit the parent process */
+		exit (EXIT_SUCCESS);
+	}
+	
+	/*
+	 * in order to write to any files created by the daemon, the file
+	 * mode mask (umask) must be changed to ensure that they can be
+	 * written to or read from properly.
+	 */
+	umask(0);
+
+	/*
+	 * Write a delimiter and a start message into the logfile
+	 */
+	log_create_item(lep, 0, NULL, "========================");
+	log_create_item(lep, 0, "repmon", "Start successfully!"); 
+	
+	/*
+	 * Create a new session id for this daemon
+	 */
+	sid = setsid();
+	if (sid < 0) {
+		warn(gettext("failed to create the process group!"));
+		exit(EXIT_FAILURE);
+	}
+
+	/*
+	 * Close the standard file descriptors
+	 */
+	close(STDIN_FILENO);
+	close(STDOUT_FILENO);
+	close(STDERR_FILENO);
+}
 
 int
 main(int argc, char *argv[])
@@ -55,11 +104,8 @@ main(int argc, char *argv[])
         int ret;
         int funcRet;
 	repmonconf_t rc;	/* current configuration */
+	log_entity_t le;
 	int modified = 0;	/* have we modified the repmon config */
-	timer_t timerid;
-	struct sigevent evp;
-	struct itimerspec it;
-	struct timespec spec;
 
         (void) setlocale(LC_ALL, "");
 #if     !defined(TEXT_DOMAIN)   /* Should be defined by cc -D */
@@ -87,28 +133,10 @@ main(int argc, char *argv[])
 	if (rconf_open(&rc, PATH_CONFIG) == -1)
 		return (E_ERROR);
 
-	/*
-	 * Create a timer to start watching over the replication services
-	 */
-	memset(&evp, 0, sizeof(struct sigevent));
-	evp.sigev_notify = SIGEV_THREAD;
-	evp.sigev_notify_function = repmon_watchdog;
-
-	if (timer_create(CLOCKID, &evp, &timerid) == -1) {
-		warn(gettext("failed to creat the timer!"));
+	if (log_open(&le, rc.rc_logdir))
 		return (E_ERROR);
-	}
 
-	clock_gettime(CLOCKID, &spec);
-	it.it_interval.tv_sec = 1;
-	it.it_interval.tv_nsec = 0;
-	it.it_value.tv_sec = spec.tv_sec + 2;
-	it.it_value.tv_nsec = spec.tv_nsec + 0;
-
-	if (timer_settime(timerid, TIMER_ABSTIME, &it, NULL) == -1) {
-		warn(gettext("failed to set the timer"));
-		return (E_ERROR);
-	}
+	daemonize(&rc, &le);
 
         return (0);
 }

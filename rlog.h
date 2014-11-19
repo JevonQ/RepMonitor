@@ -55,7 +55,7 @@ typedef struct log_entity {
 
 extern int log_open(log_entity_t *, const char *);
 extern int log_close(log_entity_t *);
-extern int log_create_item(log_entity_t *);
+extern int log_create_item(log_entity_t *, int, const char *, const char *);
 extern int log_flush(log_entity_t *);
 
 #ifdef  __cplusplus

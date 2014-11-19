@@ -47,14 +47,30 @@ log_close(log_entity_t *le)
 }
 
 int
-log_create_item(log_entity_t *le)
+log_create_item(log_entity_t *le, int level, const char *sername,
+    const char *content)
 {
+	if ((level < 0) || (level > 2)) {
+		warn(gettext("failed to create a log item"
+		" as log level %d is invalid"), lpath);
+	}
+
 	le->le_actend = (++le->le_actend) % LOG_BUF;
 	log_item_t *li = &le->le_actitem[le->le_actend];
 
+#ifdef REP_DEBUG
 	strcpy(li->li_level_str, log_item_level_str[0]);
 	strcpy(li->li_sername, TEST_LI_SERNAME);
 	strcpy(li->li_content, TEST_LI_CONTENT);
+#endif 
+	strcpy(li->li_level_str, log_item_level_str[level]);
+	if (sername != NULL) {
+		strcpy(li->li_sername, sername);
+	}
+	if (content != NULL) {
+		strcpy(li->li_content, content);
+	}	
+
 	get_systime_slash(li->li_date, li->li_time);
 
 	le->le_act = B_TRUE;
