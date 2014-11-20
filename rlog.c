@@ -52,7 +52,7 @@ log_create_item(log_entity_t *le, int level, const char *sername,
 {
 	if ((level < 0) || (level > 2)) {
 		warn(gettext("failed to create a log item"
-		" as log level %d is invalid"), lpath);
+		" as log level %d is invalid"), level);
 	}
 
 	le->le_actend = (++le->le_actend) % LOG_BUF;

@@ -56,6 +56,7 @@ rconf_open(repmonconf_t *rcp, const char *cpath)
 {
 	char buf[BUFSIZ];
 	int line;
+	int toknum = 0;
 	const char *fpmode = "r+";
 	
 	if((rcp->rc_conf_fp = fopen(cpath, fpmode)) == NULL) {
@@ -83,13 +84,31 @@ rconf_open(repmonconf_t *rcp, const char *cpath)
 			 * Locate a matching token in the tokens[] table,
 			 * and invoke its parsing function.
 			 */
-			for (tokp = tokens; tokp->tok_name != NULL; tokp++) {
+			for (tokp = tokens, toknum = 0; tokp->tok_name != NULL; tokp++, toknum++) {
 				if (strcmp(name, tokp->tok_name) == 0) {
 					if (tokp->tok_parse(rcp, value) == -1) {
 						warn(gettext("\"%s\", line %d: "
 						    "warning: invalid %s\n"),
 						    cpath, line, name);
 					}
+					switch (toknum) {
+						case 0:
+							strcpy(rcp->rc_logdir, value);
+							break;
+						case 1:
+							strcpy(rcp->rc_targetip, value);
+							break;
+						case 2:
+							strcpy(rcp->rc_targetcmd, value);
+							break;
+						case 3:
+							rcp->rc_interval = 60;
+							break;
+
+						default:
+							break;
+					}
+
 					break;
 				}
 			}

@@ -15,7 +15,7 @@
 
 /* forward declarations */
 //void repmon_watchdog(union sigval);
-void daemonize(log_entity_t *, repmonconf_t *);
+void daemonize(repmonconf_t *, log_entity_t *);
 
 
 /*
@@ -48,7 +48,7 @@ void repmon_watchdog(union sigval v)
 */
 
 void
-daemonize(log_entity_t *lep, repmonconf_t *rcp)
+daemonize(repmonconf_t *rcp, log_entity_t *lep)
 {
 	pid_t pid, sid;
 	
@@ -137,6 +137,15 @@ main(int argc, char *argv[])
 		return (E_ERROR);
 
 	daemonize(&rc, &le);
+
+	while (1) {
+		sleep(1);
+		fprintf(rc.rc_conf_fp, "Repmon logging...\n");
+		fflush(rc.rc_conf_fp);
+	}
+
+	log_close(&le);
+	rconf_close(&rc);
 
         return (0);
 }
