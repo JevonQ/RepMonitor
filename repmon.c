@@ -1,4 +1,5 @@
 #include <sys/stat.h>
+#include <sys/types.h>
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,50 +8,72 @@
 #include <unistd.h>
 #include <time.h>
 #include <signal.h>
+#include <fcntl.h>
+#include <pthread.h>
+#include <thread.h>
+#include <signal.h>
 
 #include "repmon.h"
 #include "rconf.h"
 #include "utils.h"
 #include "rlog.h"
 
-/* forward declarations */
-//void repmon_watchdog(union sigval);
-void daemonize(repmonconf_t *, log_entity_t *);
-
-
-/*
- * main calls a parser that checks syntax of the input command against
- * various rules tables.
- *
- * The parser provides usage feedback based upon same tables by calling
- * two usage functions, usage and subUsage, handling command and subcommand
- * usage respectively.
- *
- * The parser handles all printing of usage syntactical errors
- *
- * When syntax is successfully validated, the parser calls the associated
- * function using the subcommands table functions.
- *
- * Syntax is as follows:
- *	command subcommand [options] resource-type [<object>]
- *
- * The return value from the function is placed in funcRet
-*/
-
-#define	PATH_CONFIG "repmon.conf"
+#define	PATH_CONFIG	"repmon.conf"
+#define LOCK_FILE 	"repmon.lock"
+#define REPMON_LOG	"repmon.log"
 #define CLOCKID CLOCK_REALTIME 
 
-/*
-void repmon_watchdog(union sigval v)
+repmonconf_t rc;	/* current configuration */
+log_entity_t le;	/* log entity */
+int terminated = 0;	/* used to terminate the repmon process */
+int lockfd = 0;		/* file descriptor of lockf */
+
+/* forward declarations */
+void repmon_watchdog(repmonconf_t *, log_entity_t *);
+void signal_handler(int);
+void daemonize(repmonconf_t *, log_entity_t *);
+void *terminating(void *);
+
+void
+repmon_watchdog(repmonconf_t *rcp, log_entity_t *lep)
 {
-	printf("timer expiration\n");
+	while (!terminated) {
+		sleep(rcp->rc_interval);
+	}
 }
-*/
+
+void
+signal_handler(int sig)
+{
+	switch (sig) {
+	case SIGTERM:
+		printf("repmon is stoped!"); 
+		log_flush(&le);
+		log_close(&le);
+		rconf_close(&rc);
+		if (lockfd) {
+			lockf(lockfd, F_ULOCK, 0);
+		}
+		terminated = 1;
+		break;
+	}
+}
+
+void *
+terminating(void *arg)
+{
+	while (!terminated) {
+		signal(SIGTERM, signal_handler);
+		sleep(10);
+	}
+}
 
 void
 daemonize(repmonconf_t *rcp, log_entity_t *lep)
 {
+	int i;
 	pid_t pid, sid;
+	thread_t tid;
 	
 	if (getppid() == 1) {
 		/* already run as a daemon just return */
@@ -76,10 +99,23 @@ daemonize(repmonconf_t *rcp, log_entity_t *lep)
 	umask(0);
 
 	/*
-	 * Write a delimiter and a start message into the logfile
+	 * Make sure there is one daemon per server
 	 */
-	log_create_item(lep, 0, NULL, "========================");
-	log_create_item(lep, 0, "repmon", "Start successfully!"); 
+	lockfd = open(LOCK_FILE, O_RDWR|O_CREAT, 0640);
+	if (lockfd < 0) {
+		warn(gettext("failed to open the lock file"));
+		exit (EXIT_FAILURE);
+	} else if (lockf(lockfd, F_TLOCK, 0) < 0) {
+		warn(gettext("failed to lock the file"));
+		exit (EXIT_FAILURE);
+	}
+
+	/*
+	 * Close the standard file descriptors
+	 */
+	close(STDIN_FILENO);
+	close(STDOUT_FILENO);
+	close(STDERR_FILENO);
 	
 	/*
 	 * Create a new session id for this daemon
@@ -91,11 +127,11 @@ daemonize(repmonconf_t *rcp, log_entity_t *lep)
 	}
 
 	/*
-	 * Close the standard file descriptors
+	 * Create a thread to catch the signal, and the thread
+	 * will be terminated when signal SIGTERM is received.
 	 */
-	close(STDIN_FILENO);
-	close(STDOUT_FILENO);
-	close(STDERR_FILENO);
+	pthread_create(&tid, NULL, terminating, NULL);
+	repmon_watchdog(rcp, lep);
 }
 
 int
@@ -103,8 +139,6 @@ main(int argc, char *argv[])
 {       
         int ret;
         int funcRet;
-	repmonconf_t rc;	/* current configuration */
-	log_entity_t le;
 	int modified = 0;	/* have we modified the repmon config */
 
         (void) setlocale(LC_ALL, "");
@@ -130,22 +164,17 @@ main(int argc, char *argv[])
 	 * Now open and read in the initial values from the config file.
 	 * If it doesn't exist, the cmd will return with an error.
 	 */
-	if (rconf_open(&rc, PATH_CONFIG) == -1)
+	if (rconf_open(&rc, PATH_CONFIG) == -1) {
+		warn(gettext("failed to open config file\n!"));
 		return (E_ERROR);
-
-	if (log_open(&le, rc.rc_logdir))
-		return (E_ERROR);
-
-	daemonize(&rc, &le);
-
-	while (1) {
-		sleep(1);
-		fprintf(rc.rc_conf_fp, "Repmon logging...\n");
-		fflush(rc.rc_conf_fp);
 	}
 
-	log_close(&le);
-	rconf_close(&rc);
+	if (log_open(&le, rc.rc_logdir)) {
+		warn(gettext("failed to open log file\n!"));
+		return (E_ERROR);
+	}
+
+	daemonize(&rc, &le);
 
         return (0);
 }

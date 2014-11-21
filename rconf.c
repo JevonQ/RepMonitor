@@ -96,13 +96,13 @@ rconf_open(repmonconf_t *rcp, const char *cpath)
 							strcpy(rcp->rc_logdir, value);
 							break;
 						case 1:
-							strcpy(rcp->rc_targetip, value);
+							rcp->rc_interval = atoi(value);
 							break;
 						case 2:
-							strcpy(rcp->rc_targetcmd, value);
+							strcpy(rcp->rc_targetip, value);
 							break;
 						case 3:
-							rcp->rc_interval = 60;
+							strcpy(rcp->rc_targetcmd, value);
 							break;
 
 						default:

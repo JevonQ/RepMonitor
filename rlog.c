@@ -55,8 +55,10 @@ log_create_item(log_entity_t *le, int level, const char *sername,
 		" as log level %d is invalid"), level);
 	}
 
+	printf("before allocation, le_actend = %d\n", le->le_actend);
 	le->le_actend = (++le->le_actend) % LOG_BUF;
 	log_item_t *li = &le->le_actitem[le->le_actend];
+	printf("after allocation, le_actend = %d\n", le->le_actend);
 
 #ifdef REP_DEBUG
 	strcpy(li->li_level_str, log_item_level_str[0]);
@@ -101,6 +103,7 @@ log_flush(log_entity_t *le)
 			sprintf(logitem, "%s %s %s %s %s\n", li->li_level_str,
 			    li->li_sername, li->li_content, li->li_date, li->li_time);
 			fputs(logitem, fp);
+			fflush(fp);
 		}
 	}
 

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "rconf.h"
 #include "utils.h"
@@ -63,11 +64,17 @@ test_rlog()
 {
 	log_entity_t le;
 	repmonconf_t rc;
-	int rval = 0;
+	int rval = 0, j = 0;
+	char sername[6];
 
 	rval = rconf_open(&rc, PATH_CONFIG);
 	rval = log_open(&le, rc.rc_logdir);
-	rval = log_create_item(&le);
+	memset(sername, 0, sizeof(sername));
+	while (j < 21) {
+		sprintf(sername, "Ser%d", j);	
+		rval = log_create_item(&le, 0, sername, "Start successfully");
+		j++;
+	}
 	rval = log_flush(&le);
 	rval = log_close(&le);
 
