@@ -21,59 +21,121 @@
 #define	PATH_CONFIG	"repmon.conf"
 #define LOCK_FILE 	"repmon.lock"
 #define REPMON_LOG	"repmon.log"
-#define CLOCKID CLOCK_REALTIME 
 
-repmonconf_t rc;	/* current configuration */
-log_entity_t le;	/* log entity */
-int terminated = 0;	/* used to terminate the repmon process */
-int lockfd = 0;		/* file descriptor of lockf */
+/* global variables */
+repmonconf_t rc;		/* configuration */
+log_entity_t le;		/* log entity */
+int terminated = 0;		/* used to terminate the repmon process */
+int lockfd = 0;			/* file descriptor of lockf */
+FILE *logfp = 0;		/* file descriptor of repmon log */
+pthread_mutex_t cv_mutex;	/* mutex for condition variable */
+pthread_cond_t	work_cv;	/* notify worker thread to work */
+pthread_t	workerid;	/* worker thread id*/
+pthread_t 	tid; 		/* watchdog thread id */
+
+extern void check_service(log_entity_t *);
+extern void check_ha(const char *);
+extern void gather_stats(const char *);
 
 /* forward declarations */
 void repmon_watchdog(repmonconf_t *, log_entity_t *);
 void signal_handler(int);
 void daemonize(repmonconf_t *, log_entity_t *);
 void *terminating(void *);
+void repmon_writelog(char *);
+
+void *
+repmon_worker(void *argp)
+{
+	pthread_mutex_lock(&cv_mutex);
+	while (!terminated) {
+		pthread_cond_wait(&work_cv, &cv_mutex);
+		/* do the job */
+		repmon_writelog("gather_stats!");
+		gather_stats(rc.rc_rsyncdir);
+		pthread_mutex_unlock(&cv_mutex);
+	}
+	pthread_mutex_unlock(&cv_mutex);
+	repmon_writelog("worker is stopped!");
+	pthread_exit(NULL);
+}
+
+void
+repmon_writelog(char *msg)
+{
+	char log[64];
+	char date[11], time[9];
+
+	memset(log, 0, sizeof(log));
+	memset(date, 0, sizeof(date));
+	memset(time, 0, sizeof(time));
+
+	get_systime_slash(date, time);
+	sprintf(log, "[%s %s]: %s\n", date, time, msg);
+	fputs(log, logfp);
+	fflush(logfp);
+}
 
 void
 repmon_watchdog(repmonconf_t *rcp, log_entity_t *lep)
 {
+	/* create the worker thread to flush the statistics */
+	pthread_create(&workerid, NULL, repmon_worker, NULL);
+
 	while (!terminated) {
+		pthread_mutex_lock(&cv_mutex);
+		pthread_cond_signal(&work_cv);
+		pthread_mutex_unlock(&cv_mutex);
+		repmon_writelog("check_service!");
+		check_service(&le);
+		repmon_writelog("check_ha!");
+		check_ha(rcp->rc_targetip);
 		sleep(rcp->rc_interval);
 	}
+	
+	pthread_exit(NULL);
 }
 
-void
+void	
 signal_handler(int sig)
 {
 	switch (sig) {
 	case SIGTERM:
-		printf("repmon is stoped!"); 
+		terminated = 1;
+		pthread_mutex_destroy(&cv_mutex);
+		pthread_cond_destroy(&work_cv);
+		repmon_writelog("repmon is stoped!"); 
+		fclose(logfp);
 		log_flush(&le);
 		log_close(&le);
 		rconf_close(&rc);
 		if (lockfd) {
 			lockf(lockfd, F_ULOCK, 0);
 		}
-		terminated = 1;
 		break;
 	}
 }
 
+/* 
+ * Catch the signal SIGTERM
+ */
 void *
 terminating(void *arg)
 {
 	while (!terminated) {
 		signal(SIGTERM, signal_handler);
-		sleep(10);
+		sleep(1);
 	}
 }
 
+/*
+ * Enable repmon to run as a daemon
+ */
 void
 daemonize(repmonconf_t *rcp, log_entity_t *lep)
 {
 	int i;
 	pid_t pid, sid;
-	thread_t tid;
 	
 	if (getppid() == 1) {
 		/* already run as a daemon just return */
@@ -103,10 +165,10 @@ daemonize(repmonconf_t *rcp, log_entity_t *lep)
 	 */
 	lockfd = open(LOCK_FILE, O_RDWR|O_CREAT, 0640);
 	if (lockfd < 0) {
-		warn(gettext("failed to open the lock file"));
+		repmon_writelog(gettext("failed to open the lock file"));
 		exit (EXIT_FAILURE);
 	} else if (lockf(lockfd, F_TLOCK, 0) < 0) {
-		warn(gettext("failed to lock the file"));
+		repmon_writelog(gettext("failed to lock the file"));
 		exit (EXIT_FAILURE);
 	}
 
@@ -122,13 +184,18 @@ daemonize(repmonconf_t *rcp, log_entity_t *lep)
 	 */
 	sid = setsid();
 	if (sid < 0) {
-		warn(gettext("failed to create the process group!"));
+		repmon_writelog(gettext("failed to create the process group!"));
 		exit(EXIT_FAILURE);
 	}
 
+	repmon_writelog("repmon is started successfully!");
+
+	pthread_mutex_init(&cv_mutex, NULL);
+	pthread_cond_init(&work_cv, NULL);
 	/*
 	 * Create a thread to catch the signal, and the thread
 	 * will be terminated when signal SIGTERM is received.
+	 * There is no need to use pthread_join().
 	 */
 	pthread_create(&tid, NULL, terminating, NULL);
 	repmon_watchdog(rcp, lep);
@@ -157,20 +224,31 @@ main(int argc, char *argv[])
 	 * If no config file exists yet, we're going to create an empty
 	 * one, so set the modified flag to force writing out the file.
 	 */
-	if (access(PATH_CONFIG, F_OK) == -1)
-		modified++;
+	if (access(PATH_CONFIG, F_OK) == -1) {
+		warn(gettext("Please provide valid configuration"));
+		return (E_ERROR);
+	}
+
+	/*
+	 * Open the log file for repmon
+	 */
+	if ((logfp = fopen(REPMON_LOG, "a+")) == NULL) {
+		warn(gettext("failed to open stream for %s"), REPMON_LOG);
+		return (E_ERROR);
+	}
 
 	/*
 	 * Now open and read in the initial values from the config file.
 	 * If it doesn't exist, the cmd will return with an error.
 	 */
 	if (rconf_open(&rc, PATH_CONFIG) == -1) {
-		warn(gettext("failed to open config file\n!"));
+		repmon_writelog(gettext("failed to open config file\n!"));
 		return (E_ERROR);
 	}
 
+
 	if (log_open(&le, rc.rc_logdir)) {
-		warn(gettext("failed to open log file\n!"));
+		repmon_writelog(gettext("failed to open log file\n!"));
 		return (E_ERROR);
 	}
 

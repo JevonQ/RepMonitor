@@ -11,10 +11,11 @@
 extern "C" {
 #endif
 
-#define	CMDNAMELEN 32
+#define	CMDNAMELEN 128
 
 typedef struct repmonconf {
-	char rc_logdir[MAXPATHLEN];	/* Saved log directory */
+	char rc_logdir[MAXPATHLEN];	/* Saved service log directory */
+	char rc_rsyncdir[MAXPATHLEN];	/* Dir of rysnc's log */
 	char rc_targetip[MAXPATHLEN];	/* Monitoring target IP */
 	char rc_targetcmd[CMDNAMELEN];	/* Monitoring target cmd */
 	long rc_interval;		/* Working interval */
@@ -34,7 +35,8 @@ extern int rconf_close(repmonconf_t *);
 extern int rconf_update(repmonconf_t *);
 extern void rconf_print(repmonconf_t *i, FILE *);
 
-extern int rconf_str2dir(repmonconf_t *, char *);
+extern int rconf_str2servicedir(repmonconf_t *, char *);
+extern int rconf_str2rsyncdir(repmonconf_t *, char *);
 extern int rconf_str2int(repmonconf_t *, char *);
 extern int rconf_str2ip(repmonconf_t *, char *);
 extern int rconf_str2cmd(repmonconf_t *, char *);

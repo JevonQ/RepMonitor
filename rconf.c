@@ -19,12 +19,14 @@
 #define RC_PERM	(S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)	/* Mode 0644 */
 
 static int print_logdir(const repmonconf_t *, FILE *);
+static int print_rsynclog(const repmonconf_t *, FILE *);
 static int print_interval(const repmonconf_t *, FILE *);
 static int print_targetip(const repmonconf_t *, FILE *);
 static int print_cmd(const repmonconf_t *, FILE *);
 
 static const rc_token_t tokens[] = {
-	{ "REPMON_LOGDIR", rconf_str2dir, print_logdir },
+	{ "REPMON_LOGDIR", rconf_str2servicedir, print_logdir },
+	{ "REPMON_RSYNCLOG", rconf_str2rsyncdir, print_rsynclog },
 	{ "REPMON_INTERVAL", rconf_str2int, print_interval },
 	{ "REPMON_TARGETIP", rconf_str2ip, print_targetip },
 	{ "REPMON_TARGETOBJ", rconf_str2cmd, print_cmd },
@@ -44,7 +46,8 @@ typedef struct rc_print_mode_str {
 } rc_print_mode_str_t;
 
 static const rc_print_mode_str_t rc_print_mode_strs[] = {
-	{ "REPMON_LOGDIR", "Log directory" },
+	{ "REPMON_LOGDIR", "Service log directory" },
+	{ "REPMON_RSYNCLOG", "The log directory of rsync" },
 	{ "REPMON_INTERVAL", "Working interval" },
 	{ "REPMON_TARGETIP", "IP address of the target" },
 	{ "REPMON_TARGETOBJ", "Target command to be monitored" },
@@ -58,6 +61,7 @@ rconf_open(repmonconf_t *rcp, const char *cpath)
 	int line;
 	int toknum = 0;
 	const char *fpmode = "r+";
+	int ret = 0;
 	
 	if((rcp->rc_conf_fp = fopen(cpath, fpmode)) == NULL) {
 		warn(gettext("failed to open stream for %s"), cpath);
@@ -68,6 +72,7 @@ rconf_open(repmonconf_t *rcp, const char *cpath)
 		char name[BUFSIZ], value[BUFSIZ];
 		const rc_token_t *tokp;
 		int len;
+		int found = 0;
 
 		if (buf[0] == '#' || buf[0] == '\n'){
 			continue;
@@ -91,6 +96,7 @@ rconf_open(repmonconf_t *rcp, const char *cpath)
 						    "warning: invalid %s\n"),
 						    cpath, line, name);
 					}
+#if 0
 					switch (toknum) {
 						case 0:
 							strcpy(rcp->rc_logdir, value);
@@ -109,6 +115,7 @@ rconf_open(repmonconf_t *rcp, const char *cpath)
 							break;
 					}
 
+#endif
 					break;
 				}
 			}
@@ -143,14 +150,25 @@ rconf_close(repmonconf_t *rcp)
 
 /* Only absolute path is supported */
 int
-rconf_str2dir(repmonconf_t *rcp, char *buf)
+rconf_str2servicedir(repmonconf_t *rcp, char *buf)
 {
-	if (valid_abspath(buf)){
+	if (valid_abspath(buf)) {
 		(void) strcpy(rcp->rc_logdir, buf);
 		return (0);
 	}
 
 	return (-1);
+}
+
+int
+rconf_str2rsyncdir(repmonconf_t *rcp, char *buf)
+{
+        if (valid_abspath(buf)){
+                (void) strcpy(rcp->rc_rsyncdir, buf);
+                return (0);
+        }
+
+        return (-1);
 }
 
 int
@@ -179,11 +197,17 @@ rconf_str2cmd(repmonconf_t *rcp, char *buf)
 		return (0);
 	}
 
-	return (0);
+	return (-1);
 }
 
 static int
 print_logdir(const repmonconf_t *rcp, FILE *fp)
+{
+	return (0);
+}
+
+static int
+print_rsynclog(const repmonconf_t *rcp, FILE *fp)
 {
 	return (0);
 }
